@@ -1,0 +1,199 @@
+\documentclass{article}
+%% packages
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}%% proof etc
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+
+\usepackage{hyperref} %% inclusion after algorithm: mandatory
+\usepackage{url}
+
+\usepackage{boxedminipage}
+\usepackage{graphicx}%%[draft] : do not embed figs/picts
+\usepackage{float}
+\usepackage{rotating}
+
+\usepackage{xspace}
+\usepackage{nicefrac}
+%\usepackage{underscore}
+
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{verbatim}%%block comment
+
+\usepackage{csquotes} % \textquote{}
+
+%% writing in French!
+\usepackage[T1]{fontenc}    % for accents
+\usepackage[utf8]{inputenc} % for coding
+%\usepackage[french]{babel} % cesures, spaces etc
+%% Misc 
+\usepackage{xparse}   % \NewDocumentCommand
+\usepackage{pifont}
+\usepackage{marvosym}
+%\usepackage{fp}       % floating point calculations: cf macro GanttLine
+%\usepackage{eurosym}  % \euro symbol
+%\usepackage{bibtopic}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+\usepackage{fullpage}
+
+%% macros
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifSLIDES
+\SLIDESfalse
+
+\input{.latex_location_macros.sty}
+
+%% General macros 
+\input{\wmysty/macros-comments.sty}
+\input{\wmysty/macros-envs.sty}
+\input{\wmysty/macros-math-letters-fontified.sty}
+\input{\wmysty/macros-symbols.sty}
+\input{\wmysty/macros-algorithms-code.sty}
+
+%% Macros specific to one broad topic/theme 
+\input{\wmysty/macros-SBL.sty}
+\input{\wmysty/macros-wp-delaunay-voronoi.sty}
+\input{\wmysty/macros-wp-space-filling-models.sty}
+\input{\wmysty/macros-wp-conformational-analysis.sty}
+
+%% Macros specific to one/a few papers (PhD project)
+%\renewcommand{\tored}{\color{black}}
+%\renewcommand{\toblue}{\color{black}}
+
+\title{TP1}
+\author{Jules}
+
+%% Main
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\section[]{Règle de lisibilité}
+
+\subsection{Exo 1}
+\lstinputlisting[language=C]{exo1.c}
+
+\subsection{Exo 2}
+
+Les erreurs suivantes ont été corrigées:
+\begin{enumerate}
+    \item Les includes doivent etre au debut du fichier
+    \item Il ne peut y avoir deux fonctions main
+    \item La premiere fonction ne retourne pas de float
+    \item la variable \texttt{nombre} n'est jamais utilisée et doit donc
+    etre supprimé
+    \item chaque instruction se termine par \texttt{;}
+    \item les commentaires doivent etre indiqués avec \texttt{//} ou \texttt{/* */}
+\end{enumerate}
+
+\lstinputlisting[language=C]{exo2.c}
+
+\section[]{Identificateur - Variable - Type de données}
+
+\subsection{Exo 1}
+
+\begin{itemize}
+    \item \texttt{float r,r1,r2;} est correct
+    \item \texttt{real x,y,z;} est faux car \texttt{real} n'est 
+    pas un type de base
+    \item \texttt{int for,main;} est faux car main est déclaré 
+    comme une variable ce qui va rentrer en concurrence avec la 
+    fonction main que le fichier doit obligatoirement avoir
+    \item \texttt{char rs-232} est faux. Le \texttt{-} n'est pas 
+    valide.
+    \item \texttt{double d1;d2;d3;} il manque le type de donné de 
+    \texttt{d2} et \texttt{d3}. Une autre possibilité serait de remplacer 
+    les deux premier \texttt{;} par des \texttt{,}.
+    \item \texttt{long int \_\_3;} est correct car \texttt{\_} compte 
+    comme un charactère alphabétique.
+    \item \texttt{unsigned char c='c';} est correct.
+    
+\end{itemize}
+
+\subsection{Exo 2}
+
+On suppose une architecture 16 bits.
+
+\begin{tabular}{c|c}
+    compteur $[0,300]$ & \texttt{unsigned int compteur;}\\
+    x,y $[-120,100]$ & \texttt{char x,y;}\\
+    mesure $[-10,10^4]$ & \texttt{int mesure;}\\
+    surface $[0.5,150075]$ & \texttt{float surface;}\\
+    nb1 $[-1,1024]$ & \texttt{short int nb1;}\\
+    nb2 $[0,7\times 10^5]$ & \texttt{long nb2;}\\
+    trouve $\{\text{vrai},\text{faux}\}$ & \texttt{int trouve;}\\
+
+\end{tabular}
+
+Note : Un mot est l'unité spécifique de l'architecture de 
+l'ordinateur. En architecture 16 bit un mot est une unité de 
+16 bits.
+
+\subsection{Exo 3}
+
+\begin{enumerate}
+    \item \texttt{char}
+    \item \texttt{int}
+    \item \texttt{unsigned char}
+    \item \texttt{float}
+    \item \texttt{unsigned int}
+    \item \texttt{long double}
+    \item \texttt{long int}
+\end{enumerate}
+
+\section{TP machine - Entrées sorties}
+
+\subsection{Exo 1}
+
+\lstinputlisting[language=C]{exo3-1.c}
+
+\subsection{Exo 2}
+
+\lstinputlisting[language=C]{exo3-2.c}
+
+Note : \texttt{scanf} retourne le nombre de variables correctement 
+lues.
+
+\subsection{Exo 3}
+(a)
+
+\lstinputlisting[language=C]{exo3-3.c}
+
+(b)
+
+Il faut modifier la ligne 
+\begin{verbatim}
+    scanf("%d %d %d",&jour,&mois,&année);
+\end{verbatim}
+
+par 
+
+\begin{verbatim}
+    scanf("%d/%d/%d",&jour,&mois,&année);
+\end{verbatim}
+
+\subsection{Exo 4}
+
+(a)
+
+\lstinputlisting[language=C]{exo3-4.c}
+
+(b)
+
+Les résultats ne sont plus valide car les nombres 30 000 et 500 000
+sont trop grands pour le type \texttt{int}.
+
+(c)
+
+Il suffit de remplacer les \texttt{int} par \texttt{long}.
+
+
+\end{document}
