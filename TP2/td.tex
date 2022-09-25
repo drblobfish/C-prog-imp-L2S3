@@ -1,0 +1,166 @@
+\documentclass{article}
+%% packages
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}%% proof etc
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+
+\usepackage{hyperref} %% inclusion after algorithm: mandatory
+\usepackage{url}
+
+\usepackage{boxedminipage}
+\usepackage{graphicx}%%[draft] : do not embed figs/picts
+\usepackage{float}
+\usepackage{rotating}
+
+\usepackage{xspace}
+\usepackage{nicefrac}
+%\usepackage{underscore}
+
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{verbatim}%%block comment
+
+\usepackage{csquotes} % \textquote{}
+
+%% writing in French!
+\usepackage[T1]{fontenc}    % for accents
+\usepackage[utf8]{inputenc} % for coding
+%\usepackage[french]{babel} % cesures, spaces etc
+%% Misc 
+\usepackage{xparse}   % \NewDocumentCommand
+\usepackage{pifont}
+\usepackage{marvosym}
+%\usepackage{fp}       % floating point calculations: cf macro GanttLine
+%\usepackage{eurosym}  % \euro symbol
+%\usepackage{bibtopic}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+\usepackage{fullpage}
+
+%% macros
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifSLIDES
+\SLIDESfalse
+
+\input{.latex_location_macros.sty}
+
+%% General macros 
+\input{\wmysty/macros-comments.sty}
+\input{\wmysty/macros-envs.sty}
+\input{\wmysty/macros-math-letters-fontified.sty}
+\input{\wmysty/macros-symbols.sty}
+\input{\wmysty/macros-algorithms-code.sty}
+
+%% Macros specific to one broad topic/theme 
+\input{\wmysty/macros-SBL.sty}
+\input{\wmysty/macros-wp-delaunay-voronoi.sty}
+\input{\wmysty/macros-wp-space-filling-models.sty}
+\input{\wmysty/macros-wp-conformational-analysis.sty}
+
+%% Macros specific to one/a few papers (PhD project)
+%\renewcommand{\tored}{\color{black}}
+%\renewcommand{\toblue}{\color{black}}
+
+\title{TP}
+\author{Jules}
+
+\begin{document}
+\maketitle
+
+%=============================================
+
+
+\section{Exo 1}
+
+(a)
+
+\texttt{x} est un int, donc la division \texttt{a/b} retourne un int.
+
+On a donc \texttt{x : 3}
+
+(b)
+
+\texttt{d} est un float et \texttt{c} est un float donc \texttt{d = a/c}
+retourne un float, on a \texttt{d : 0.75}
+
+\texttt{e} est un float mais \texttt{a} et \texttt{b} sont des entiers donc 
+\texttt{a/b} retourne un entier qui est ensuite casté en . On a \texttt{e : 0.00000}
+
+\texttt{f} est un entier donc la division est entière. On a \texttt{f : 0}
+
+\section{exo 2}
+
+\begin{enumerate}
+    \item \texttt{(5*x)+2*((3*b)+4)} $\rightarrow$ \texttt{98}
+    \item \texttt{5*(x+2)*3*(b+4)} $\rightarrow$ \texttt{1850}
+    \item \texttt{a==(b=6)} $\rightarrow$ \texttt{0}
+    \item \texttt{a\%=d++} $\rightarrow$ \texttt{0}
+    \item \texttt{a\%=++d} $\rightarrow$ \texttt{3}
+    \item \texttt{a\&\&b || !0\&\&c \&\& !d} $\rightarrow$ \texttt{1}
+    \item \texttt{((a\&\&b)||(!0\&\&c))\&\&!d} $\rightarrow$ \texttt{0}
+    \item \texttt{((a\&\&b)||!0)\&\&(c\&\&!d)} $\rightarrow$ \texttt{0}
+\end{enumerate}
+
+\section{Exo3}
+
+\begin{lstlisting}
+
+    (3<=x && x<=6) || (7<=x && x<10)
+
+\end{lstlisting}
+
+\section{Exo 4}
+
+\subsection{1}
+
+\begin{lstlisting}
+    if (a>b){
+        if (a>10){
+            printf("premier choix\n");
+        }
+        else if (b<10){
+            printf("deuxieme choix\n");
+        }
+        else if (a==b){
+            printf("troisieme choix\n");
+        }
+        else {
+            printf("quatrieme choix\n");
+        }
+    }
+\end{lstlisting}
+
+\subsection{2}
+
+\begin{itemize}
+    \item premier choix : $(a>b)\wedge(a>10)$
+    \item deuxième choix : $(a>v)\wedge (b<10)$
+    \item troisième choix : $(a>b) \wedge (a=b) \equiv \bot $
+    \item quatrième choix : $(a>b) \wedge (a<=10) \wedge (b>=10) \wedge (b\neq a) \equiv \bot$
+\end{itemize}
+
+\subsection{3}
+
+On n'obtient pas de réponse pour $a<=b$
+
+\section{exo 5}
+
+\begin{enumerate}
+    \item il manque un \texttt{;} à la fin de la ligne 2
+    \item il manque les \texttt{break;} à chaque bloc du switch 
+    et les expressions dans les \texttt{case} doivent être des constantes
+    \item il manque les \texttt{break;} à chaque bloc du switch
+\end{enumerate}
+
+\section{Exo 6}
+
+
+
+\end{document}
