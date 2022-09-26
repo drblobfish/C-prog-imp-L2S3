@@ -1,0 +1,117 @@
+\documentclass{article}
+%% packages
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}%% proof etc
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+
+\usepackage{hyperref} %% inclusion after algorithm: mandatory
+\usepackage{url}
+
+\usepackage{boxedminipage}
+\usepackage{graphicx}%%[draft] : do not embed figs/picts
+\usepackage{float}
+\usepackage{rotating}
+
+\usepackage{xspace}
+\usepackage{nicefrac}
+%\usepackage{underscore}
+
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{verbatim}%%block comment
+
+\usepackage{csquotes} % \textquote{}
+
+%% writing in French!
+\usepackage[T1]{fontenc}    % for accents
+\usepackage[utf8]{inputenc} % for coding
+%\usepackage[french]{babel} % cesures, spaces etc
+%% Misc 
+\usepackage{xparse}   % \NewDocumentCommand
+\usepackage{pifont}
+\usepackage{marvosym}
+%\usepackage{fp}       % floating point calculations: cf macro GanttLine
+%\usepackage{eurosym}  % \euro symbol
+%\usepackage{bibtopic}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+\usepackage{fullpage}
+
+%% macros
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifSLIDES
+\SLIDESfalse
+
+\input{.latex_location_macros.sty}
+
+%% General macros 
+\input{\wmysty/macros-comments.sty}
+\input{\wmysty/macros-envs.sty}
+\input{\wmysty/macros-math-letters-fontified.sty}
+\input{\wmysty/macros-symbols.sty}
+\input{\wmysty/macros-algorithms-code.sty}
+
+%% Macros specific to one broad topic/theme 
+\input{\wmysty/macros-SBL.sty}
+\input{\wmysty/macros-wp-delaunay-voronoi.sty}
+\input{\wmysty/macros-wp-space-filling-models.sty}
+\input{\wmysty/macros-wp-conformational-analysis.sty}
+
+%% Macros specific to one/a few papers (PhD project)
+%\renewcommand{\tored}{\color{black}}
+%\renewcommand{\toblue}{\color{black}}
+
+\title{TP}
+\author{Jules}
+
+\begin{document}
+\maketitle
+
+%=============================================
+
+\section*{Exo 1}
+
+\subsection*{(a)}
+
+\includegraphics*[height=5cm]{schem_mem_1-a.pdf}
+
+le pointeur \texttt{p} n'est pas définit dans le code.
+
+Supposons que le but du code est que \texttt{p} soit un
+ pointeur vers \texttt{a}.
+
+\begin{lstlisting}
+    int *p, a = 5;
+
+    p = &a;
+\end{lstlisting}
+
+\includegraphics*[height=5cm]{schem_mem_1-a-2.pdf}
+
+\subsection*{(b)}
+
+\begin{lstlisting}
+    int a = 1;
+    int b = 5;
+    int *p1,*p2,*p3;
+
+    p2 = &a;
+    p1 = p2;
+    *p1 = a;
+
+    p3 = &b;
+    (*p3)++;
+\end{lstlisting}
+
+\subsection*{(c)}
+
+\includegraphics*[height=2cm]{schem_mem_1-c.pdf}
+
+\end{document}
