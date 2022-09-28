@@ -9,20 +9,20 @@ int main(){
 
     int *pInt = &x;
 
-    printf("adresse pInt : %p\tcontenu pInt %p\tvaleur pointée %d\n",&pInt,pInt,*pInt);
+    printf("adresse pInt : %p\tcontenu pInt %p\tvaleur pointee %d\n",&pInt,pInt,*pInt);
 
     int *ptrInt = (int *) malloc(sizeof(int));
     *ptrInt = 100;
 
-    printf("adresse ptrInt %p\t contenu ptrInt %p\tvaleur pointée %d\n",&ptrInt,ptrInt,*ptrInt);
+    printf("adresse ptrInt %p\t contenu ptrInt %p\tvaleur pointee %d\n",&ptrInt,ptrInt,*ptrInt);
 
     *pInt = 200;
 
     printf("adresse x : %p\tvaleur x : %d\n",&x,x);
 
-    printf("adresse pInt : %p\tcontenu pInt %p\tvaleur pointée %d\n",&pInt,pInt,*pInt);
+    printf("adresse pInt : %p\tcontenu pInt %p\tvaleur pointee %d\n",&pInt,pInt,*pInt);
 
-    printf("adresse ptrInt %p\t contenu ptrInt %p\tvaleur pointée %d\n",&ptrInt,ptrInt,*ptrInt);
+    printf("adresse ptrInt %p\t contenu ptrInt %p\tvaleur pointee %d\n",&ptrInt,ptrInt,*ptrInt);
 
 
     free(ptrInt);

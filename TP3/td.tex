@@ -41,6 +41,22 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{listings}
 
+\lstdefinestyle{mystyle}{
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame = single
+}
+
+\lstset{style=mystyle}
+
 
 \usepackage{fullpage}
 
@@ -71,47 +87,99 @@
 \title{TP}
 \author{Jules}
 
+\newcommand{\graphscale}{.8}
+
+
 \begin{document}
 \maketitle
 
 %=============================================
-
 \section*{Exo 1}
 
 \subsection*{(a)}
 
-\includegraphics*[height=5cm]{schem_mem_1-a.pdf}
-
-le pointeur \texttt{p} n'est pas définit dans le code.
-
-Supposons que le but du code est que \texttt{p} soit un
- pointeur vers \texttt{a}.
-
-\begin{lstlisting}
-    int *p, a = 5;
-
-    p = &a;
+\begin{lstlisting}[caption=Séquence d'instruction (a)]
+int a = 5; //le pointeur p n'est pas definit, c'est un pointeur null
+*p = a;
 \end{lstlisting}
 
-\includegraphics*[height=5cm]{schem_mem_1-a-2.pdf}
+\begin{figure}[H]
+    \begin{center}
+        \scalebox{\graphscale}{\includegraphics*[]{schem_mem_1-a.pdf}}
+    \end{center}
+    \caption{Schéma mémoire de la séquence d'instruction (a)}
+\end{figure}
+
+\begin{lstlisting}[caption=Séquence d'instruction (a) corrigée]
+int *p, a = 5;
+p = &a;
+\end{lstlisting}
+
+\begin{figure}[H]
+    \begin{center}
+        \scalebox{\graphscale}{\includegraphics*[]{schem_mem_1-a-2.pdf}}
+    \end{center}
+    \caption{Schéma mémoire de la séquence (a) corrigée}
+\end{figure}
 
 \subsection*{(b)}
 
-\begin{lstlisting}
-    int a = 1;
-    int b = 5;
-    int *p1,*p2,*p3;
+\begin{lstlisting}[caption=Séquence d'instruction (b)]
+int a=1;
+int b=5;
+int *p1,*p2;
+float *p3;
 
-    p2 = &a;
-    p1 = p2;
-    *p1 = a;
-
-    p3 = &b;
-    (*p3)++;
+p1=p2; // p2 n'a pas ete initialisee
+p2=&a;
+*p1=a; // on ne sais pas ou pointe p1
+p3=&b; // p3 est un pointeur de float mais b est un int
+(*p3)++;
 \end{lstlisting}
+
+\begin{lstlisting}[caption=Séquence d'instruction (b) corrigée]
+int a = 1;
+float b = 5.;
+int *p1,*p2,*p3;
+
+p2 = &a;
+p1 = &a;
+
+p3 = &b;
+(*p3)++;
+\end{lstlisting}
+
+\begin{figure}[H]
+    \begin{center}
+        \scalebox{\graphscale}{\includegraphics*[]{schem_mem_1-b.pdf}}
+    \end{center}
+    \caption{Schéma mémoire de la séquence (b) corrigée}
+\end{figure}
+
 
 \subsection*{(c)}
 
-\includegraphics*[height=2cm]{schem_mem_1-c.pdf}
+\begin{figure}[H]
+    \begin{center}
+        \scalebox{\graphscale}{\includegraphics*[]{schem_mem_1-c.pdf}}
+    \end{center}
+    \caption{Schéma mémoire de la séquence d'instruction (c)}
+\end{figure}
+
+\section*{Exo 2}
+\begin{figure}[H]
+    \begin{center}
+        \scalebox{\graphscale}{\includegraphics*[]{schem_mem_2.pdf}}
+    \end{center}
+    \caption{Schéma graphique de la séquence d'instruction de l'exercice 2}
+\end{figure}
+
+\section*{Exo machine 1}
+
+\lstinputlisting{tp3-1.c}
+
+\section*{Exo machine 2}
+
+\lstinputlisting{tp3-2.c}
 
 \end{document}
