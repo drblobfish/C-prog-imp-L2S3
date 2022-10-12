@@ -1,0 +1,150 @@
+\documentclass{article}
+%% packages
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}%% proof etc
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+
+\usepackage{hyperref} %% inclusion after algorithm: mandatory
+\usepackage{url}
+
+\usepackage{boxedminipage}
+\usepackage{graphicx}%%[draft] : do not embed figs/picts
+\usepackage{float}
+\usepackage{rotating}
+
+\usepackage{xspace}
+\usepackage{nicefrac}
+%\usepackage{underscore}
+
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{verbatim}%%block comment
+
+\usepackage{csquotes} % \textquote{}
+
+%% writing in French!
+\usepackage[T1]{fontenc}    % for accents
+\usepackage[utf8]{inputenc} % for coding
+%\usepackage[french]{babel} % cesures, spaces etc
+%% Misc 
+\usepackage{xparse}   % \NewDocumentCommand
+\usepackage{pifont}
+\usepackage{marvosym}
+%\usepackage{fp}       % floating point calculations: cf macro GanttLine
+%\usepackage{eurosym}  % \euro symbol
+%\usepackage{bibtopic}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+\usepackage{fullpage}
+
+%% macros
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifSLIDES
+\SLIDESfalse
+
+\input{.latex_location_macros.sty}
+
+%% General macros 
+\input{\wmysty/macros-comments.sty}
+\input{\wmysty/macros-envs.sty}
+\input{\wmysty/macros-math-letters-fontified.sty}
+\input{\wmysty/macros-symbols.sty}
+\input{\wmysty/macros-algorithms-code.sty}
+
+%% Macros specific to one broad topic/theme 
+\input{\wmysty/macros-SBL.sty}
+\input{\wmysty/macros-wp-delaunay-voronoi.sty}
+\input{\wmysty/macros-wp-space-filling-models.sty}
+\input{\wmysty/macros-wp-conformational-analysis.sty}
+
+%% Macros specific to one/a few papers (PhD project)
+%\renewcommand{\tored}{\color{black}}
+%\renewcommand{\toblue}{\color{black}}
+
+\title{TP}
+\author{Jules}
+
+\begin{document}
+\maketitle
+
+%=============================================
+
+\section*{Exo 1}
+\subsection*{a}
+\begin{lstlisting}
+void fonctionB (int c){
+    ...
+}
+
+int fonctionA(int a, int b){
+    fonctionB(a);
+}
+\end{lstlisting}
+
+\subsection*{b}
+\begin{lstlisting}
+int fonctionA(int, int);
+void fonctionB (int);
+
+int fonctionA(int a, int b){
+    fonctionB(a);
+}
+void fonctionB (int c){
+    ...
+}
+\end{lstlisting}
+
+\section*{Exo 2}
+
+\subsection*{1}
+
+\begin{lstlisting}
+int Somme(int a, int b){
+    return a+b;
+}
+\end{lstlisting}
+
+\subsection*{1}
+
+\begin{lstlisting}
+
+void Somme(int a, int b, int *sum_adress){
+    *sum_adress = a+b;
+}
+\end{lstlisting}
+
+\section*{Exo 3}
+
+\subsection*{a}
+
+\begin{lstlisting}
+int factorielle(int n){
+    int sum = 1;
+    for (int i = n;i>1;i--){
+        sum *= i;
+    }
+    return sum;
+}
+\end{lstlisting}
+
+\subsection*{b}
+
+\begin{lstlisting}
+
+int factorielle(int n){
+    if (n == 1){
+        return n;
+    }
+    return n * factorielle(n-1);
+}
+\end{lstlisting}
+
+
+\end{document}
