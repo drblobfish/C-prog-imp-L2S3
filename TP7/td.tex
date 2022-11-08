@@ -1,0 +1,134 @@
+\documentclass{article}
+%% packages
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}%% proof etc
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+
+\usepackage{hyperref} %% inclusion after algorithm: mandatory
+\usepackage{url}
+
+\usepackage{boxedminipage}
+\usepackage{graphicx}%%[draft] : do not embed figs/picts
+\usepackage{float}
+\usepackage{rotating}
+
+\usepackage{xspace}
+\usepackage{nicefrac}
+%\usepackage{underscore}
+
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{verbatim}%%block comment
+
+\usepackage{csquotes} % \textquote{}
+
+%% writing in French!
+\usepackage[T1]{fontenc}    % for accents
+\usepackage[utf8]{inputenc} % for coding
+%\usepackage[french]{babel} % cesures, spaces etc
+%% Misc 
+\usepackage{xparse}   % \NewDocumentCommand
+\usepackage{pifont}
+\usepackage{marvosym}
+%\usepackage{fp}       % floating point calculations: cf macro GanttLine
+%\usepackage{eurosym}  % \euro symbol
+%\usepackage{bibtopic}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+\usepackage{fullpage}
+
+%% macros
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifSLIDES
+\SLIDESfalse
+
+\input{.latex_location_macros.sty}
+
+%% General macros 
+\input{\wmysty/macros-comments.sty}
+\input{\wmysty/macros-envs.sty}
+\input{\wmysty/macros-math-letters-fontified.sty}
+\input{\wmysty/macros-symbols.sty}
+\input{\wmysty/macros-algorithms-code.sty}
+
+%% Macros specific to one broad topic/theme 
+\input{\wmysty/macros-SBL.sty}
+\input{\wmysty/macros-wp-delaunay-voronoi.sty}
+\input{\wmysty/macros-wp-space-filling-models.sty}
+\input{\wmysty/macros-wp-conformational-analysis.sty}
+
+%% Macros specific to one/a few papers (PhD project)
+%\renewcommand{\tored}{\color{black}}
+%\renewcommand{\toblue}{\color{black}}
+
+\title{TP}
+\author{Jules}
+
+\begin{document}
+\maketitle
+
+%=============================================
+
+\section*{Exo 1}
+\begin{enumerate}
+    \item \texttt{14}
+    \item \texttt{34}
+    \item L'adresse de la case mémoire à côté de celle de p.
+    \item L'adresse de la case du tableau contenant 23 (la case 1)
+    \item L'adresse de la case 3 du tableau (celle qui contient 45)
+    \item L'adresse 7 de la mémoire.
+    \item L'adresse de la case 2 du tableau (celle contenant 34)
+    \item L'adresse de la case 1 du tableau (celle contenant 23)
+\end{enumerate}
+
+\section*{Exo 2}
+\begin{lstlisting}
+char *ptab;
+char tab[32];
+char ch1[] = "Bonjour";
+char ch2[15];
+
+strcpy(tab,"QW");
+strcpy(ch2,ch1);
+ptab = (char *) calloc(10,sizeof(char));
+if (~ptab){
+    perror("memory problem");
+}
+strcpy(ptab,"ASDFGHJKL");
+
+printf("tab : %s\tptab : %s\n",tab,ptab);
+printf("tab : %c\tptab : %c\n",*tab,*ptab);
+printf("tab : %c\tptab : %c\n",tab[1],ptab[1]);
+printf("tab : %c\tptab : %c\n",*(tab+1),*(ptab+1));
+printf("tab : %c\tptab : %c\n",*tab+1,*ptab+1);
+\end{lstlisting}
+
+It returns
+
+\begin{lstlisting}
+tab : QW        ptab : ASDFGHJKL
+tab : Q ptab : A
+tab : W ptab : S
+tab : W ptab : S
+tab : R ptab : B
+\end{lstlisting}
+
+\section*{Exo 3}
+
+\lstinputlisting{tp7-3.c}
+
+\section*{Exo 4}
+
+\begin{lstlisting}
+10 20 30 40
+30 21
+\end{lstlisting}
+
+\end{document}
