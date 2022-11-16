@@ -1,0 +1,98 @@
+\documentclass{article}
+%% packages
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}%% proof etc
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+
+\usepackage{hyperref} %% inclusion after algorithm: mandatory
+\usepackage{url}
+
+\usepackage{boxedminipage}
+\usepackage{graphicx}%%[draft] : do not embed figs/picts
+\usepackage{float}
+\usepackage{rotating}
+
+\usepackage{xspace}
+\usepackage{nicefrac}
+%\usepackage{underscore}
+
+\usepackage{comment}
+\usepackage{soul}
+\usepackage{verbatim}%%block comment
+
+\usepackage{csquotes} % \textquote{}
+
+%% writing in French!
+\usepackage[T1]{fontenc}    % for accents
+\usepackage[utf8]{inputenc} % for coding
+%\usepackage[french]{babel} % cesures, spaces etc
+%% Misc 
+\usepackage{xparse}   % \NewDocumentCommand
+\usepackage{pifont}
+\usepackage{marvosym}
+%\usepackage{fp}       % floating point calculations: cf macro GanttLine
+%\usepackage{eurosym}  % \euro symbol
+%\usepackage{bibtopic}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+
+\usepackage{fullpage}
+
+%% macros
+%%i%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifSLIDES
+\SLIDESfalse
+
+\input{.latex_location_macros.sty}
+
+%% General macros 
+\input{\wmysty/macros-comments.sty}
+\input{\wmysty/macros-envs.sty}
+\input{\wmysty/macros-math-letters-fontified.sty}
+\input{\wmysty/macros-symbols.sty}
+\input{\wmysty/macros-algorithms-code.sty}
+
+%% Macros specific to one broad topic/theme 
+\input{\wmysty/macros-SBL.sty}
+\input{\wmysty/macros-wp-delaunay-voronoi.sty}
+\input{\wmysty/macros-wp-space-filling-models.sty}
+\input{\wmysty/macros-wp-conformational-analysis.sty}
+
+%% Macros specific to one/a few papers (PhD project)
+%\renewcommand{\tored}{\color{black}}
+%\renewcommand{\toblue}{\color{black}}
+
+\title{TP}
+\author{Jules}
+
+\begin{document}
+\maketitle
+
+%=============================================
+\part*{Partie TD}
+\section*{Exercice 1}
+
+\newcommand{\V}{Correct}
+\newcommand{\F}{Incorrect}
+
+\begin{enumerate}
+    \item \V 
+    \item \F 
+    \item \F 
+    \item \F 
+    \item \V 
+    \item \V 
+    \item \F 
+    \item \F pointeur non réassignable
+    \item \F 
+    \item \V 
+\end{enumerate}
+
+
+\end{document}
